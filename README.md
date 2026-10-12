@@ -11,6 +11,7 @@ It does not replace the book. It removes the page flipping.
 - Root chain from Strong's own derivation, plus other words from the same root.
 - The ancient Hebrew letter pictures (Benner's alphabet table) for the word's letters.
 - For Greek loanwords and names, the Hebrew source Strong's names, with its Benner number.
+- An optional context pass, on request: word and root, historical, cultural, literary, Near Eastern and theological context, with named sources to verify. Claims are labelled by source, and Benner's picture reading is shown beside academic lexicons.
 - One Markdown note per study. Three layouts: `plain` (any Markdown app), `obsidian` (wiki links, Related to and status fields), or `custom` (the skill copies the layout of your own notes). Dates in whatever style you write them.
 
 ## Example

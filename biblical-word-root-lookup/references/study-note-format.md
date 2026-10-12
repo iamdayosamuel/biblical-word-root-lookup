@@ -19,6 +19,7 @@ created: 2026-10-12T00:32
 
 - `date_style` tokens: YYYY, MM, DD (02), D (2, no leading zero), Mon (Oct), Month (October). The user's own style, never imposed. It is the single source for the format. If the user changes how they write dates, update it once.
 - `layout` is `plain`, `obsidian` or `custom` (below).
+- `context_focus` is optional (for example "commerce and law"). It sets the lens the context pass gives first (see `context-pass.md`).
 - `ai_app` and `note_app` record the answers to the first-run questions. If `ai_app` is a chat app with no file access, show notes in the reply for the user to paste.
 
 ## Layouts

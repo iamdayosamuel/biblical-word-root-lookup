@@ -15,6 +15,7 @@ Everything runs offline from the bundled files. No web call is needed for number
 - `references/strongs-greek.json`: 5,523 Greek Strong's entries (G1 to G5624, with Strong's own gaps).
 - `references/strongs-to-benner.csv`: Strong's to Benner's table from the Lexicon index (pp. 526 to 558). Columns `strongs`, `benner`, `table_pages`. Hebrew only. One Strong's number can map to several Benner's entries.
 - `references/ancient-alphabet.md`: Benner's table of the 22 ancient letters (picture, meaning, sound).
+- `references/context-pass.md`: the optional context pass (word and root, historical, cultural, literary, Near Eastern parallels, theological, named sources). On request only.
 - `references/benner-entry-guide.md`: how to read a Benner's entry (parent, child, adopted roots, abbreviations).
 - `references/study-note-format.md`: study settings, the three note layouts, and the rules for a study note.
 - `references/SOURCES.md`: licences, attribution, known low-confidence rows.
@@ -29,7 +30,7 @@ The first time the skill runs, before any lookup, check for a `Study-Settings.md
 3. **Where should study notes be saved?** A folder path (inside their vault if they use Obsidian). Skip if the app cannot write files.
 4. **How do you write dates?** Offer examples such as 11-Oct-2026, 2026-10-11, 11/10/2026. If they would rather not say, ask them to type today's date their usual way and match it. If they use Obsidian daily notes, ask how those are named, so a `[[date]]` link points to a real note.
 5. **What should a note look like?** Offer `plain`, `obsidian`, or `custom` (they share two or three of their own study notes and the skill copies that layout). Step 2 usually settles this. Only ask if it is unclear. See `references/study-note-format.md`.
-6. **Anything else to adjust?** Note naming, fields they always keep (status, tags, Related to), language for the notes.
+6. **Anything else to adjust?** Note naming, fields they always keep (status, tags, Related to), language for the notes, and an optional context focus for the context pass (for example "commerce and law"), saved as `context_focus`.
 
 Output is Markdown for everyone, unless the user asks for another format. Save the answers with `python3 -I scripts/study_log.py init --folder <dir> --date-style "<style>" --layout <layout> --ai-app "<app>" --note-app "<app>"`, or write `Study-Settings.md` by hand using `references/study-note-format.md`. For `custom`, follow the instructions there. Do not ask again once settings exist. If the user later says they changed app, date style or layout, update the settings file once. On a later visit, read the settings first and search the folder for the word before making a new note. If the user pastes a note into the chat, use that.
 
@@ -63,6 +64,8 @@ Treat this skill as the first step for any Bible question about meaning, not onl
    - For Hebrew: one line pointing to what to look for in Benner's, the entry's parent root and its Act, Obj and Abs ideas (see `references/benner-entry-guide.md`). Always give the pictograph: each letter's picture and meaning from `references/ancient-alphabet.md`, labelled as the letters' meanings. Then ask the user to read the entry in their printed Benner's and bring back what it says. Their reading of the book is the authority, and the study note is built from it.
 
 4. **Offer to save the study.** After a lookup, ask once whether to save it, and ask for the user's own meaning in their words. When the user states what they have learned, save it without asking again. Each study is its own note, never a shared log, because users reuse studies as separate ideas. One note can hold a few related words when they are one train of thought. Make the skeleton with `python3 -I scripts/study_log.py add --folder <dir> --title "..." --strongs H1818 H1826`, then write the user's wording into the note in their voice and layout (see `references/study-note-format.md`). Capture their picture of the word, the connections they draw and any reading of their own, kept separate from the lexicon's. Do not flatten it, and do not add reasoning of your own. A second visit to the same study goes in with `study_log.py revisit --title "..." --text "..."`. To find earlier studies, run `study_log.py list --folder <dir> [--search text]` (newest first).
+
+5. **Context pass, on request only.** When the user asks what a word or passage meant to its first readers, or asks for the background, follow `references/context-pass.md`. After a full word study you may offer it in one line and wait. Never run it unasked. It checks the user's study folder once for earlier notes, covers the historical, cultural, literary, Near Eastern and theological contexts that apply, labels every claim by source, and never invents a citation.
 
 ## New Testament and Greek
 
