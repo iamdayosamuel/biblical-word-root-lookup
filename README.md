@@ -13,6 +13,42 @@ It does not replace the book. It removes the page flipping.
 - For Greek loanwords and names, the Hebrew source Strong's names, with its Benner number.
 - One Markdown note per study. Three layouts: `plain` (any Markdown app), `obsidian` (wiki links, Related to and status fields), or `custom` (the skill copies the layout of your own notes). Dates in whatever style you write them.
 
+## Example
+
+Ask: "Strong's and Benner number for blood in Hebrew". The skill runs its lookup script and answers from this output:
+
+```
+H1818  דָּם  dâm (dawm)
+  Benner 740 (table pp. 530-531)
+  Strong's: blood (as that which when shed causes death) of man or an animal; by analogy,
+            the juice of the grape; figuratively (especially in the plural) bloodshed
+  Root chain: H1818 dâm <- H1826 dâmam  [primitive root]
+  Root H1826: Benner 741 (table pp. 530-531)
+  Same root H1826:
+    H1748 דּוּמָם dûwmâm: still, silently          | Benner 743
+    H1827 דְּמָמָה dᵉmâmâh: quiet, calm, silence  | Benner 742
+```
+
+Open your printed Benner's at entry 740, read it, and tell the skill what you found. It then saves a study note. The skill makes the skeleton (the `plain` layout is shown). The words under it are yours:
+
+```
+---
+created: 2026-10-12T00:32
+updated: 2026-10-12T00:32
+---
+# What does damim have to do with blood and money
+
+Date: 12-Oct-2026
+
+---
+
+דָּם dâm - strong's 1818
+Benner's Lexicon - 740
+strong's: blood (as that which when shed causes death) of man or an animal...
+
+(your own words: what the entry says, the letter pictures, the connections you see)
+```
+
 ## Install
 
 **Claude Code.** Copy the `biblical-word-root-lookup` folder into `~/.claude/skills/` (all projects) or `<project>/.claude/skills/` (one project). It must be an unzipped folder with `SKILL.md` inside. Restart Claude Code from that project.
