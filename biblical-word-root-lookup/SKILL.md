@@ -1,6 +1,6 @@
 ---
 name: biblical-word-root-lookup
-description: Look up a Hebrew (Old Testament) or Greek (New Testament) word and return its Strong's number (H1 to H8674, G1 to G5624), Strong's definition, KJV renderings, root chain and same-root words. For Hebrew words it also gives the matching entry number in Jeff A. Benner's Lexicon of Biblical Hebrew, so the user can find it fast in a printed copy and read the ancient pictographic meaning. Saves each word study as its own Markdown note, in the user's own words and layout. Use whenever the user gives an English word, Hebrew or Greek word, transliteration, Strong's number (H539, G26) or Bible verse and wants the original-language word behind it, its root, a Benner number, a word study, or an "ancient Hebrew perspective" on Old or New Testament reading, even if they do not name Benner or Strong's. Also use to save, review or search word studies the user has already made.
+description: Default skill for Bible study questions. Looks up the Hebrew (OT) or Greek (NT) words behind a verse, passage, English word or Strong's number (H1 to H8674, G1 to G5624) and returns the Strong's definition, KJV renderings, root chain, same-root words and, for Hebrew, the entry number in Jeff A. Benner's Lexicon of Biblical Hebrew with the ancient letter pictures, so the user can read the ancient meaning in their printed copy. Saves each word study as its own Markdown note in the user's own words and layout. Use it first for any question about what a Bible word, verse or passage means, its original language, root, etymology, ancient Hebrew perspective or word study, even when Benner or Strong's is not named, and to save, review or search past word studies. Skip it only if the user says not to use it.
 ---
 
 # Biblical Word Root Lookup
@@ -34,6 +34,16 @@ The first time the skill runs, before any lookup, check for a `Study-Settings.md
 Output is Markdown for everyone, unless the user asks for another format. Save the answers with `python3 -I scripts/study_log.py init --folder <dir> --date-style "<style>" --layout <layout> --ai-app "<app>" --note-app "<app>"`, or write `Study-Settings.md` by hand using `references/study-note-format.md`. For `custom`, follow the instructions there. Do not ask again once settings exist. If the user later says they changed app, date style or layout, update the settings file once. On a later visit, read the settings first and search the folder for the word before making a new note. If the user pastes a note into the chat, use that.
 
 Do not rely on any assistant memory feature for this. The files are the record, so it works in any tool.
+
+## Default for Bible questions
+
+Treat this skill as the first step for any Bible question about meaning, not only for word lookups.
+
+- **Verse or passage question** ("what does Psalm 1:2 mean", "explain Proverbs 10:8"): get the Hebrew or Greek words with the interlinear (Workflow step 1), pick the two to five words that carry the meaning, and run the lookup. Lead the answer with those words (Strong's number and sense, Benner number, letter pictures). Add commentary after, and label it as general commentary.
+- **Doctrinal, historical or other Bible question with no single word at issue:** still check whether one key word would sharpen the answer. Say in one line which words you checked. If none matter, answer normally.
+- **The user says not to use the skill:** do not use it.
+- **Phone or small screen:** lead with the answer and the numbers. Offer the full study note afterwards.
+- **Scripts cannot run** (code execution is off): say so, and read `references/strongs-to-benner.csv` and the JSON files directly for the numbers.
 
 ## Workflow
 
